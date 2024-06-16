@@ -7,6 +7,7 @@ import request from "@/views/request.vue"
 import admin from "@/views/admin.vue"
 import details from "@/views/details.vue"
 import result from "@/views/result.vue"
+import unfinished from "@/views/unfinished.vue";
 
 const routes = [
   {
@@ -14,7 +15,11 @@ const routes = [
     name: "Root",
     component: home,
     alias: "/root"
-  }, {
+  }, 
+  {
+    path: '/:pathMatch(.*)*', component:unfinished
+  },
+  {
     path: "/about",
     name: "about",
     component: about

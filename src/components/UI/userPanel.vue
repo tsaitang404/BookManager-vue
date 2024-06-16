@@ -19,7 +19,7 @@ import Data from '@/datas/data';
 export default {
     data() {
         return {
-            user:Data.user
+            user:Data.isUser
         }
     },
     methods: {

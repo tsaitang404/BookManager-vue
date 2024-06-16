@@ -42,8 +42,7 @@ export default {
             const data = this.user;
             try {
                 const response = await this.axios.post("http://localhost:9090/api/register", data)
-                console.debug(response.data)
-                if (response.data != null) {
+                if (response.data.id !== 0) {
                     alert("注册成功！")
                 } else alert("用户名重复，请重试。")
 

@@ -19,7 +19,7 @@
 import bookInfo from "@/components/UI/bookInfo.vue"
 import searchBar from "@/components/UI/searchBar.vue";
 import TwikooCommentVue from '@/components/TwikooComment.vue';
-import bookData from "@/datas/data.js"
+import Data from "@/datas/data.js"
 export default {
     components: {
         searchBar,
@@ -35,12 +35,12 @@ export default {
     data() {
         return {
 
-            book: bookData.books[this.$route.params.id - 1]
+            book: Data.books[this.$route.params.id - 1]
         }
     },
     methods: {
         preview() {
-            window.open(this.book.data.preview, '_blank');
+            window.open(this.book.preview, '_blank');
         }
     }
 

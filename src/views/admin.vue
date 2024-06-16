@@ -33,10 +33,9 @@
                         <template #title>
                             <span>系统设置</span>
                         </template>
-                        <el-menu-item index="4-1">页面设置</el-menu-item>
-                        <el-menu-item index="4-2">接口设置</el-menu-item>
-                        <el-menu-item index="4-3">备份&恢复</el-menu-item>
-                        <el-menu-item index="4-4">其他</el-menu-item>
+                        <el-menu-item index="4-1" @click="toSettings">页面设置</el-menu-item>
+                        <el-menu-item index="4-2" @click="toSettings">接口设置</el-menu-item>
+                        <el-menu-item index="4-3" @click="toSettings">其他</el-menu-item>
                     </el-sub-menu>
                 </el-menu>
             </el-col>
@@ -59,6 +58,7 @@ import newUser from '@/components/admin/user/newUser.vue'
 import modUser from '@/components/admin/user/modUser.vue'
 import banUser from '@/components/admin/user/banUser.vue'
 import userGroup from '@/components/admin/user/userGroup.vue'
+import unfinished from "./unfinished.vue"
 
 import Data from "@/datas/data.js"
 
@@ -89,7 +89,7 @@ export default {
     methods: {
         clean() {
             console.debug("clean!")
-            Data.isUser = {};
+            Data.user = {};
             Data.books = [];
             for (let key in this.isUser) {
                 delete this.isUser[key]; // 清空对象
@@ -118,7 +118,7 @@ export default {
         },
         toUserGroup() {
             this.clean;
-            this.view = userGroup
+            this.view = unfinished
         },
         toNewBook() {
             this.clean;
@@ -132,6 +132,10 @@ export default {
             this.clean;
             this.view = banBook
         },
+        toSettings() {
+            this.clean;
+            this.view = unfinished
+        }
     }
 }
 </script>

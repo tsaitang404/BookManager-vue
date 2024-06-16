@@ -10,7 +10,6 @@
     </div>
 </template>
 <script>
-import { selectGroupKey } from 'element-plus';
 import userCat from './userCat.vue'
 import Data from '@/datas/data.js'
 export default {
@@ -23,7 +22,7 @@ export default {
     data() {
         return {
             sUserName: "",
-            isUser: Data.isUser,
+            user: Data.user,
             isNull: false,
             uid: Data.data.uid,
             chooseBtn: "#007bff",
@@ -34,9 +33,9 @@ export default {
         choosed() {
             if (this.choose == false) {
                 this.chooseBtn = "#808080";
-                console.debug(this.isUser)
                 this.choose = true;
                 this.$emit("updatabooks")
+                this.$emit("chooseUser")
 
             } else {
                 this.uid = null;
@@ -57,9 +56,8 @@ export default {
                 console.debug(response.data);
                 if (response.data.length != 0) {
                     Object.keys(response.data).forEach(key => {
-                        this.isUser[key] = response.data[key];
+                        this.user[key] = response.data[key];
                     });
-                    console.debug(this.isUser);
                 } else {
                     alert("妹有啊！");
                 }
@@ -70,7 +68,7 @@ export default {
     },
     computed: {
         isNull() {
-            return (Object.keys(this.isUser).length === 0) ? false : true
+            return (Object.keys(this.user).length === 0) ? false : true
         }
     }
 }

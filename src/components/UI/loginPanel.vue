@@ -25,7 +25,7 @@ export default {
 		return {
 			username: '',
 			password: '',
-			user: Data.user
+			user: Data.isUser
 		};
 	},
 	methods: {

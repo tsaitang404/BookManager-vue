@@ -15,7 +15,7 @@ import Data from '@/datas/data.js';
 export default {
     data() {
         return {
-            user: Data.isUser,
+            user: Data.user,
         };
     },
     computed: {

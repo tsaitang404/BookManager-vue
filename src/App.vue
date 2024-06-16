@@ -57,7 +57,7 @@ export default {
 	},
 	data() {
 		return {
-			user: Data.user,
+			user: Data.isUser,
 			isLogin: false,
 			isAdmin: false,
 			search: "", // 检索内容
