@@ -1,9 +1,9 @@
 <template>
 <div id="userInfo">
     <!-- <img :src="userData.data.avatar"/> -->
-    <a>ID：{{ userData.id}}</a>
-    <a>用户名：{{ userData.username}}</a>
-    <a>E-mail：{{ userData.email}}</a>
+    <a>ID：{{ user.id}}</a>
+    <a>用户名：{{ user.username}}</a>
+    <a>E-mail：{{ user.email}}</a>
 
 </div>
 
@@ -13,7 +13,7 @@ import Data from "@/datas/data.js"
 export default {
     data(){
         return{
-            userData:Data.userData
+            user:Data.isUser
         }
     }
 }
