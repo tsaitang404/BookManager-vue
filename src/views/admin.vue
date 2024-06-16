@@ -88,14 +88,13 @@ export default {
     },
     methods: {
         clean() {
-            console.debug("clean!")
-            Data.user = {};
-            Data.books = [];
-            for (let key in this.isUser) {
-                delete this.isUser[key]; // 清空对象
+            //this.books = [];
+            for (let key in this.user) {
+                delete this.user[key]; // 清空对象
             }
             this.books.splice(0, this.books.length); // 清空数组
         },
+        
         toBorrow() {
             this.clean();
             this.view = borrowBook
@@ -105,37 +104,40 @@ export default {
             this.view = returnBook
         },
         toNewUser() {
-            this.clean;
+            this.clean();
             this.view = newUser
         },
         toModUser() {
-            this.clean;
+            this.clean();
             this.view = modUser
         },
         toBanUser() {
-            this.clean;
+            this.clean();
             this.view = banUser
         },
         toUserGroup() {
-            this.clean;
+            this.clean();
             this.view = unfinished
         },
         toNewBook() {
-            this.clean;
+            this.clean();
             this.view = newBook
         },
         toModBook() {
-            this.clean;
+            this.clean();
             this.view = modBook
         },
         toBanBook() {
-            this.clean;
+            this.clean();
             this.view = banBook
         },
         toSettings() {
-            this.clean;
+            this.clean();
             this.view = unfinished
         }
+    },
+    created(){
+            this.clean = this.clean.bind(this);
     }
 }
 </script>
