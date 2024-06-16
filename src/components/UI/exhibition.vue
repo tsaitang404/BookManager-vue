@@ -40,19 +40,19 @@ export default {
 
 .gallery-item {
   flex: 0 0 10%;
-  /* 设置每个项目的宽度，可以根据需要调整 */
   margin-bottom: 20px;
   background-color: white;
   padding: 1em;
   border: 1px;
 }
-
 .bookCover {
+  position: relative;
   height: 120px;
   width: 80px;
-  padding: 1em;
-  border: solid 1px;
 }
+
+
+
 
 .bookName {
   margin-top: 10px;

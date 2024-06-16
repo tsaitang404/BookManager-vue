@@ -32,7 +32,7 @@ export default {
         choosed(id) {
             console.debug(id)
              this.$emit("submitBook", id);
-             this.$emit("choosedBook",id);
+             this.$emit("chooseBook",id);
         },
         async searchBtn() {
             if (this.sBookName == null || this.sBookName == null) {

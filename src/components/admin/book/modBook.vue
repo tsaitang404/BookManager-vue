@@ -1,6 +1,6 @@
 <template>
-    <bookSelector v-show="showWitch" @chooseBook="chooseBook" />
-    <div v-if="!showWitch">
+    <bookSelector  @chooseBook="chooseBook" />
+    <div v-show="showWitch">
         <div class="modBook" >
             <div>
 
@@ -74,7 +74,7 @@ export default {
     data() {
         return {
             componentA: bookSelector,
-            showWitch: true,
+            showWitch: false,
             book: Data.book,
 
 
@@ -91,13 +91,11 @@ export default {
             const data = { id: id };
             try {
                 const response = await this.axios.post("http://localhost:9090/api/detail", data);
-                // console.debug(response.data);
                 if (response.data.length != 0) {
-                    // console.debug(response.data);
                     Object.keys(response.data).forEach(key => {
                         this.book[key] = response.data[key];
                     });
-                    // console.debug(this.book);
+                    this.showWitch = true
                 }
             } catch (error) {
                 alert(error);
