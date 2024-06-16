@@ -31,8 +31,8 @@ export default {
     methods: {
         choosed(id) {
             console.debug(id)
-            this.$emit("submitBook", this.id);
-            this.$emit("chooseBook",id);
+             this.$emit("submitBook", id);
+             this.$emit("choosedBook",id);
         },
         async searchBtn() {
             if (this.sBookName == null || this.sBookName == null) {

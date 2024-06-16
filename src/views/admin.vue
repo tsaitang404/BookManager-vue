@@ -54,7 +54,7 @@ import borrowBook from "@/components/admin/borrow.vue"
 import returnBook from "@/components/admin/return.vue"
 import newBook from '@/components/admin/book/newBook.vue'
 import modBook from '@/components/admin/book/modBook.vue'
-import banBook from '@/components/admin/book/banBook.vue'
+import banBook from '@/components/admin/book/delBook.vue'
 import newUser from '@/components/admin/user/newUser.vue'
 import modUser from '@/components/admin/user/modUser.vue'
 import banUser from '@/components/admin/user/banUser.vue'

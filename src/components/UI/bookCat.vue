@@ -34,8 +34,6 @@ export default {
   methods: {
     choosed(index) {
       if (this.choose == false) {
-        console.debug(this.books[0])
-        console.debug(index)
         Object.keys(this.books[index]).forEach(key => {
           this.book[key] = this.books[index][key];
         });
