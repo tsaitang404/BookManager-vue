@@ -26,7 +26,7 @@ export default {
             isNull: false,
             uid: Data.data.uid,
             chooseBtn: "#007bff",
-            choose: false
+            choose: false,
         }
     },
     methods: {
@@ -44,6 +44,10 @@ export default {
             }
         },
         async searchUser() {
+            Object.keys(this.user).forEach(key => {
+                this.user[key] = null;
+            });
+
             if (this.sUserName == null || this.sUserName == null) {
                 alert("请输入用户名！")
                 return;
@@ -53,13 +57,14 @@ export default {
             const data = { text: this.sUserName.toString() };
             try {
                 const response = await this.axios.post("http://localhost:9090/api/findbyname", data);
-                console.debug(response.data);
                 if (response.data.length != 0) {
+                    this.userCatVisable = true
                     Object.keys(response.data).forEach(key => {
                         this.user[key] = response.data[key];
                     });
                 } else {
                     alert("妹有啊！");
+                    this.userCatVisable = false
                 }
             } catch (error) {
                 alert(error);
@@ -68,7 +73,12 @@ export default {
     },
     computed: {
         isNull() {
-            return (Object.keys(this.user).length === 0) ? false : true
+            try {
+                if (this.user.id != null) return true
+            } catch {
+
+                return false
+            }
         }
     }
 }

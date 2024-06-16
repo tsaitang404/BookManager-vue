@@ -23,7 +23,7 @@
 				</keep-alive>
 			</div>
 		</header>
-		<div id="context" style="z-index: 0;float:left; text-align: center;min-height: 60vh;margin: 10%;">
+		<div id="context" style="z-index: 0;float:left; text-align: center;min-height: 67vh;margin: 10%;">
 			<router-view />
 
 
@@ -31,7 +31,7 @@
 		<footer>
 			<footerBar />
 			<!-- Debug -->
-			<button @click="debugP">Debug: 输出Data</button>
+			<!-- <button @click="debugP">Debug: 输出Data</button> -->
 			<!-- Debug -->
 		</footer>
 	</div>

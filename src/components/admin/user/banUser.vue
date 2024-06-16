@@ -1,40 +1,61 @@
 <template>
-    <div>
-        <select-user v-model:user="selectedUser" />
-        <button @click="confirmDelete">删除用户</button>
-        <Dialog v-model:dialogVisible="dialogVisible" @confirm="deleteUser" @cancel="closeDialog" />
+    <div class="banUser">
+        <select-user :modelValue="selectedUser" @update:modelValue="updateSelectedUser" />
+        <button :style="{ backgroundColor: buttonColor, color: fontColor }" @click="confirmDelete">{{ buttonText
+            }}</button>
     </div>
 </template>
 
 <script>
 import SelectUser from "@/components/UI/userSelector.vue";
-import dialog from "@/components/UI/dialog.vue";
+import Data from "@/datas/data.js";
 
 export default {
     components: {
         SelectUser,
-        dialog
     },
     data() {
         return {
-            selectedUser: null,
-            dialogVisible: false
+            user: Data.user,
+            buttonColor: '#007bff',
+            buttonText: "删除用户",
+            fontColor: "white",
+            doublecheck: false
         };
     },
     methods: {
         confirmDelete() {
-            if (this.selectedUser) {
-                this.dialogVisible = true;
-            } 
+            if (!this.doublecheck) {
+                this.buttonColor = 'red';
+                this.buttonText = "请确认！"
+                this.fontColor = 'Black'
+
+                this.doublecheck = true;
+            } else {
+                this.delUser()
+            }
         },
-        deleteUser() {
-                alert("Delete");
-            // ...
-            this.dialogVisible = false; 
-        },
-        closeDialog() {
-            this.dialogVisible = false; 
+        async delUser() {
+            try {
+                const data={id:this.user.id}
+                const response =await  this.axios.post("http://localhost:9090/api/deluser", data);
+                console.debug(data)
+                console.debug(response.data)
+                if (response.data > 0) {
+                    alert("已经删除！")
+                }
+                else {
+                    alset("出问题了！")
+                }
+            } catch (error) {
+
+            }
         }
     }
-};
+}
 </script>
+<style scoped>
+.banUser button {
+    width: 90%;
+}
+</style>

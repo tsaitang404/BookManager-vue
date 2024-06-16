@@ -1,5 +1,6 @@
 <template>
-    <div class="userCat">
+    <div  class="userCat">
+
         <el-avatar :src="avatar" alt="User Avatar" :size="80" class="avatar" />
         <div class="userDetails">
             <h2>UID: {{ id }}</h2>
@@ -13,6 +14,7 @@
 import Data from '@/datas/data.js';
 
 export default {
+   
     data() {
         return {
             user: Data.user,
@@ -24,6 +26,10 @@ export default {
         username() { return this.user.username }
     }
 }
+
+
+
+
 </script>
 
 <style scoped>
@@ -45,7 +51,7 @@ export default {
     flex-direction: column;
     width: 100%;
     margin-left: 40px;
-    margin-right:100px;
+    margin-right: 100px;
 }
 
 

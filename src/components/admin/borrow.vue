@@ -1,24 +1,20 @@
 <template>
     <select-user />
     <select-book />
-    <user-info v-if="su" />
-    <book-info v-if="sb" />
+   
     <div class="com2">
         <button @click="borrow">借书</button>
     </div>
 </template>
 <script>
 import selectUser from "@/components/UI/userSelector.vue";
-import userInfo from "../UI/userInfo.vue";
 import selectBook from "@/components/UI/bookSelector.vue";
-import bookInfo from "../UI/bookInfo.vue";
 import Data from "@/datas/data.js"
 export default {
     components: {
         selectUser,
         selectBook,
-        userInfo,
-        bookInfo
+        
     },
     data() {
         return {

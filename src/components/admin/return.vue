@@ -1,6 +1,5 @@
 <template>
     <select-user @updatabooks="updatabooks" />
-    <user-info v-if="su" />
     <book-info v-if="sb" />
     <div class="com2">
     </div>
@@ -9,11 +8,10 @@
 </template>
 <script>
 import selectUser from "@/components/UI/userSelector.vue";
-import userInfo from "../UI/userInfo.vue";
 import selectBook from "@/components/UI/bookSelector.vue";
-import bookInfo from "../UI/bookInfo.vue";
+import bookCat from "../UI/bookCat.vue";
+import userCat from "../UI/userCat.vue";
 import Data from "@/datas/data";
-import bookCat from '../UI/bookCat.vue';
 export default {
     props: {
         id: Number
@@ -21,8 +19,7 @@ export default {
     components: {
         selectUser,
         selectBook,
-        userInfo,
-        bookInfo,
+        userCat,
         bookCat
     },
     data() {

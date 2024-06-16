@@ -13,13 +13,15 @@
     </footer>
 </template>
 <style scoped>
+
 footer {
+
+    bottom: 0;
+    width: 100%;
     background-color: #f1ecec;
     color: #000000;
     text-align: center;
     border-top: 1px solid #666;
-    font-size: 14px;
-    margin-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 10px 0; /* 调整底部内边距 */
 }
 </style>
